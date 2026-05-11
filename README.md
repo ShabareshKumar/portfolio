@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Personal Portfolio Website
 
-## Getting Started
+A production-ready personal portfolio built with Next.js, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## ✨ Features
+
+- Dark glassmorphism theme with purple/violet glow accents
+- Infinite horizontal scroll animation for achievements (pauses on hover)
+- Fully responsive design (mobile, tablet, desktop)
+- Smooth scroll-triggered animations with Framer Motion
+- Skill progress bars with animated fill
+- Contact form UI (ready for backend integration)
+- All content controlled via single config file
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Language**: TypeScript
+- **Deployment**: Vercel
+
+## 📝 Customization
+
+All content is controlled via a single file: `data/config.ts`
+
+Fill in your details:
+- Personal info (name, title, email, phone, location)
+- Stats (experience, projects, awards, clients)
+- Skills with proficiency levels
+- Projects with images and links
+- Achievements with dates
+- Testimonials
+- Social links (LinkedIn, GitHub, Twitter, Portfolio)
+
+## 🚀 Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Initialize Git
 
-## Learn More
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Push to GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git remote add origin https://github.com/your-username/portfolio.git
+git branch -M main
+git push -u origin main
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Deploy on Vercel
 
-## Deploy on Vercel
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click "New Project" → Import your repository
+3. Click "Deploy" — Vercel auto-detects Next.js configuration
+4. Your site will be live in ~2 minutes!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+/portfolio
+├── app/
+│   ├── layout.tsx          # Root layout with fonts
+│   ├── page.tsx            # Main page with all sections
+│   └── globals.css         # Global styles & animations
+├── components/
+│   ├── Navbar.tsx          # Navigation with mobile menu
+│   ├── Hero.tsx            # Hero section with profile
+│   ├── About.tsx           # About section
+│   ├── Skills.tsx          # Skills with progress bars
+│   ├── Projects.tsx        # Project showcase grid
+│   ├── Achievements.tsx    # Infinite scroll achievements
+│   ├── Testimonials.tsx    # Client testimonials
+│   ├── Contact.tsx         # Contact form
+│   └── Footer.tsx          # Footer with social links
+├── data/
+│   └── config.ts           # ⭐ EDIT THIS FILE
+├── public/                 # Add your images here
+├── next.config.ts          # Next.js configuration
+├── tailwind.config.js      # Tailwind configuration
+└── package.json
+```
+
+## 🎨 Sections
+
+1. **Navbar** - Sticky navigation with smooth scroll links
+2. **Hero** - Name, title, CTA buttons, profile image, stats
+3. **About** - Bio, contact info, what you do
+4. **Skills** - Tech stack with animated progress bars
+5. **Projects** - Portfolio showcase with images
+6. **Achievements** - Horizontal auto-scroll with pause on hover
+7. **Testimonials** - Client feedback cards
+8. **Contact** - Contact form (UI only, ready for backend)
+9. **Footer** - Social links and copyright
+
+## ✅ Quality Checklist
+
+- ✅ Zero build errors
+- ✅ Zero TypeScript errors
+- ✅ Zero console warnings
+- ✅ Fully responsive
+- ✅ Smooth animations
+- ✅ Clean code structure
+- ✅ Production-ready
+- ✅ Vercel deployment ready
+
+## 🔧 Customization Tips
+
+### Adding Images
+Place images in the `public/` folder and reference them in `config.ts`:
+```typescript
+profileImage: "/profile.jpg"
+```
+
+### Changing Colors
+Edit `app/globals.css` to change the purple theme:
+```css
+/* Change purple-600 to your color */
+bg-gradient-to-r from-purple-600 to-violet-600
+```
+
+### Adding More Sections
+Create a new component in `components/` and import it in `app/page.tsx`
+
+## 📄 License
+
+Free to use for personal portfolios.
