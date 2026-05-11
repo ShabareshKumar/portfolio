@@ -3,9 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: false,
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "**" },
-    ],
+    // All images are local /public assets — no remote patterns needed.
+    // Add entries here if you later use external image URLs.
+    remotePatterns: [],
   },
 };
 

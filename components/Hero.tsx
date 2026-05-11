@@ -1,6 +1,6 @@
 ﻿"use client";
 import { motion, type Transition } from "framer-motion";
-import { Download, Mail, ExternalLink } from "lucide-react";
+import { Mail, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { portfolioData } from "@/data/config";
 

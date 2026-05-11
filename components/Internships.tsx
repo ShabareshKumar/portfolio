@@ -2,6 +2,7 @@
 import { motion, useInView, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { useRef, useState } from "react";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const internships = [
   {
@@ -93,21 +94,32 @@ function InternshipCard({ item, index, inView }: { item: typeof internships[0]; 
 
           {item.certificate && (
             <div className="flex justify-center" style={{ marginTop: '16px' }}>
-              <img
-                src={item.certificate}
-                alt={item.role + " Certificate"}
+              <div
                 style={{
+                  position: 'relative',
                   width: item.landscape ? '75%' : 'auto',
-                  maxHeight: item.landscape ? 'none' : '360px',
-                  height: 'auto',
-                  objectFit: 'contain',
-                  borderRadius: '10px',
-                  border: '2px solid rgba(139, 92, 246, 0.3)',
-                  display: 'block',
-                  filter: 'brightness(0.9) contrast(1.1)',
+                  maxWidth: '100%',
                   margin: '0 auto',
                 }}
-              />
+              >
+                <Image
+                  src={item.certificate}
+                  alt={item.role + " Certificate"}
+                  width={600}
+                  height={item.landscape ? 424 : 800}
+                  className="rounded-[10px]"
+                  style={{
+                    width: item.landscape ? '100%' : 'auto',
+                    maxHeight: item.landscape ? 'none' : '360px',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    border: '2px solid rgba(139, 92, 246, 0.3)',
+                    display: 'block',
+                    filter: 'brightness(0.9) contrast(1.1)',
+                    margin: '0 auto',
+                  }}
+                />
+              </div>
             </div>
           )}
         </div>

@@ -503,41 +503,24 @@ body {
 
 /* ========================================
    HIDE NEXT.JS DEVELOPMENT INDICATORS
+   (dev-only overlays — safe to keep, only
+    targets internal Next.js elements)
    ======================================== */
 
 #__next-build-watcher,
 nextjs-portal,
 [data-nextjs-dialog-overlay],
-[data-nextjs-toast],
-.__next-dev-overlay,
-#__next-route-announcer__,
-[id^="__next"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-button[aria-label*="Next"],
-button[aria-label*="next"],
-div[style*="position: fixed"][style*="bottom"],
-div[style*="position: fixed"][style*="right"],
-[class*="__nextjs"],
-[id*="nextjs"] {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-body > div[style*="position: fixed"][style*="z-index"] {
+[data-nextjs-toast] {
   display: none !important;
 }
 
 /* ========================================
-   SECTION SPACING
+   SECTION SPACING — only apply to sections
+   that don't have their own padding set
    ======================================== */
 
-.portfolio-main section + section {
-  margin-top: 10rem !important;
+.portfolio-main > section + section {
+  /* Individual sections control their own spacing via padding/margin */
 }
 
 /* ========================================

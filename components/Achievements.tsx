@@ -1,5 +1,36 @@
 ﻿'use client';
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+
+const achievements = [
+  {
+    title: "Ideathon Winner",
+    description: "Sairam Ideathon 4.0 Winner - Developed innovative Traffic Management solution aligned with SDG Goal 11: Sustainable Cities and Communities",
+    image: "/ideathon-winner.jpg",
+  },
+  {
+    title: "Praestantia 2K24",
+    description: "First Place in Flicker Frenzy - Department of Electronics and Communication Engineering, Sri Sai Ram Institute of Technology",
+    image: "/praestantia-certificate.png",
+  },
+  {
+    title: "NPTEL Cloud Computing",
+    description: "Elite Certificate with 75% score - Ranked in Top 5% among 27,874 candidates in Cloud Computing course",
+    image: "/nptel-cloud.png",
+  },
+  {
+    title: "Wadhwani Foundation",
+    description: "Certificate of Program Completion - Ignite for Entrepreneurs India - Gained hands-on entrepreneurial skills through coursework and assessments",
+    image: "/wadhwani.png",
+  },
+  {
+    title: "NPTEL Programming in Java",
+    description: "Elite Certificate with 62% score - Successfully completed Programming in Java course",
+    image: "/nptel-programming-in-java.png",
+  },
+];
+
+const CARD_WIDTH = 350 + 32; // card width + gap
 
 export default function Achievements() {
   const [isPaused, setIsPaused] = useState(false);
@@ -7,36 +38,6 @@ export default function Achievements() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-
-  const achievements = [
-    {
-      title: "Ideathon Winner",
-      description: "Sairam Ideathon 4.0 Winner - Developed innovative Traffic Management solution aligned with SDG Goal 11: Sustainable Cities and Communities",
-      image: "/ideathon-winner.jpg"
-    },
-    {
-      title: "Praestantia 2K24",
-      description: "First Place in Flicker Frenzy - Department of Electronics and Communication Engineering, Sri Sai Ram Institute of Technology",
-      image: "/praestantia-certificate.png"
-    },
-    {
-      title: "NPTEL Cloud Computing",
-      description: "Elite Certificate with 75% score - Ranked in Top 5% among 27,874 candidates in Cloud Computing course",
-      image: "/nptel-cloud.png"
-    },
-    {
-      title: "Wadhwani Foundation",
-      description: "Certificate of Program Completion - Ignite for Entrepreneurs India - Gained hands-on entrepreneurial skills through coursework and assessments",
-      image: "/wadhwani.png"
-    },
-    {
-      title: "NPTEL Programming in Java",
-      description: "Elite Certificate with 62% score - Successfully completed Programming in Java course",
-      image: "/nptel-programmin in java.png"
-    }
-  ];
-
-  const CARD_WIDTH = 350 + 32;
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -48,22 +49,17 @@ export default function Achievements() {
     let animationFrameId: number;
     const scroll = () => {
       if (!el || isPaused || isDragging) return;
-      
       el.scrollLeft += 1;
-      
       if (el.scrollLeft >= totalWidth * 2) {
         el.scrollLeft = totalWidth;
       }
-      
       animationFrameId = requestAnimationFrame(scroll);
     };
 
     animationFrameId = requestAnimationFrame(scroll);
 
     return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
+      cancelAnimationFrame(animationFrameId);
     };
   }, [isPaused, isDragging]);
 
@@ -88,7 +84,9 @@ export default function Achievements() {
   return (
     <section id="achievements" className="py-20" style={{ marginBottom: '30px' }}>
       <div className="max-w-[1600px] mx-auto px-[60px]">
-        <h2 className="text-4xl font-bold text-center" style={{ marginBottom: '50px' }}>Achievements</h2>
+        <h2 className="text-4xl font-bold text-center" style={{ marginBottom: '50px' }}>
+          Achievements
+        </h2>
         <div
           ref={scrollRef}
           className="relative overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing"
@@ -98,10 +96,7 @@ export default function Achievements() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
         >
-          <div
-            className="flex gap-8"
-            style={{ width: 'fit-content' }}
-          >
+          <div className="flex gap-8" style={{ width: 'fit-content' }}>
             {[...achievements, ...achievements, ...achievements].map((achievement, index) => (
               <div
                 key={index}
@@ -109,16 +104,22 @@ export default function Achievements() {
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               >
-                <div className="mb-4">
-                  <img
+                <div className="mb-4 relative w-full" style={{ minHeight: '160px' }}>
+                  <Image
                     src={achievement.image}
                     alt={achievement.title}
-                    className="w-full h-auto object-contain rounded-lg border-2 border-purple-500/50"
+                    fill
+                    className="object-contain rounded-lg border-2 border-purple-500/50"
                     style={{ filter: 'brightness(0.85)' }}
+                    sizes="350px"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white text-center">{achievement.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed px-4 text-center">{achievement.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-white text-center">
+                  {achievement.title}
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed px-4 text-center">
+                  {achievement.description}
+                </p>
               </div>
             ))}
           </div>

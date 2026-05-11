@@ -1,5 +1,5 @@
 "use client";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 import { portfolioData } from "@/data/config";
 
 export default function Footer() {

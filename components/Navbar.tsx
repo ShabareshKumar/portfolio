@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, type Transition } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { portfolioData } from "@/data/config";
 
 const navLinks = [
@@ -36,8 +37,8 @@ export default function Navbar() {
       <div className="w-full mx-auto h-16 flex items-center justify-between" style={{ maxWidth: '1600px', paddingLeft: '60px', paddingRight: '60px' }}>
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full overflow-hidden">
-            <img src="/profile.png" alt="Profile" className="w-full h-full object-cover" />
+          <div className="w-8 h-8 rounded-full overflow-hidden relative">
+            <Image src="/profile.png" alt="Profile" fill className="object-cover" sizes="32px" />
           </div>
           <span className="font-bold text-white text-lg tracking-tight">
             {name || "Portfolio"}
