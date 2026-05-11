@@ -48,7 +48,11 @@ function CertCard({ cert, index, isOpen, setOpenIndex, inView }: {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="glass rounded-xl border border-white/5 hover:border-purple-500/30 transition-all duration-300"
+      className={`glass rounded-xl border transition-all duration-300 ${
+        isOpen
+          ? 'border-purple-500/40 border-b-0 rounded-b-none'
+          : 'border-white/5 hover:border-purple-500/30'
+      }`}
     >
       <button
         onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -81,8 +85,7 @@ function CertCard({ cert, index, isOpen, setOpenIndex, inView }: {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-5 pt-3">
-              <div className="h-px bg-purple-500/20 mb-4" />
+            <div className="px-6 pb-5 pt-2">
               <p className="text-slate-300 leading-relaxed whitespace-pre-line text-sm" style={{ paddingLeft: '32px' }}>
                 {cert.description}
               </p>
