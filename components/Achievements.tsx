@@ -1,6 +1,5 @@
 ﻿'use client';
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 
 const achievements = [
   {
@@ -30,7 +29,7 @@ const achievements = [
   },
 ];
 
-const CARD_WIDTH = 350 + 32; // card width + gap
+const CARD_WIDTH = 420 + 32; // card width + gap
 
 export default function Achievements() {
   const [isPaused, setIsPaused] = useState(false);
@@ -100,26 +99,34 @@ export default function Achievements() {
             {[...achievements, ...achievements, ...achievements].map((achievement, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[350px] bg-gray-800 rounded-lg p-8 hover:bg-gray-700 transition-all"
+                className="flex-shrink-0 w-[420px] bg-gray-800 rounded-xl hover:bg-gray-700 transition-all overflow-hidden"
+                style={{ border: '1px solid rgba(139, 92, 246, 0.25)' }}
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               >
-                <div className="mb-4 relative w-full" style={{ minHeight: '160px' }}>
-                  <Image
-                    src={achievement.image}
-                    alt={achievement.title}
-                    fill
-                    className="object-contain rounded-lg border-2 border-purple-500/50"
-                    style={{ filter: 'brightness(0.85)' }}
-                    sizes="350px"
-                  />
+                {/* Certificate image — full width, no padding, no gaps */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={achievement.image}
+                  alt={achievement.title}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    filter: 'brightness(0.88)',
+                    borderBottom: '1px solid rgba(139, 92, 246, 0.25)',
+                  }}
+                  draggable={false}
+                />
+                {/* Text content */}
+                <div style={{ padding: '20px 24px 24px' }}>
+                  <h3 className="text-lg font-bold mb-2 text-white text-center">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm leading-relaxed text-center">
+                    {achievement.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white text-center">
-                  {achievement.title}
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed px-4 text-center">
-                  {achievement.description}
-                </p>
               </div>
             ))}
           </div>
