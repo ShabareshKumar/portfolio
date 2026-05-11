@@ -29,7 +29,7 @@ const achievements = [
   },
 ];
 
-const CARD_WIDTH = 260 + 20; // card width + gap
+const CARD_WIDTH = 340 + 24; // card width + gap
 
 export default function Achievements() {
   const [isPaused, setIsPaused] = useState(false);
@@ -95,16 +95,15 @@ export default function Achievements() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="flex gap-5" style={{ width: 'fit-content' }}>
+          <div className="flex gap-6" style={{ width: 'fit-content' }}>
             {[...achievements, ...achievements, ...achievements].map((achievement, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[260px] bg-gray-800 rounded-xl hover:bg-gray-700 transition-all overflow-hidden"
+                className="flex-shrink-0 w-[340px] bg-gray-800 rounded-xl hover:bg-gray-700 transition-all overflow-hidden"
                 style={{ border: '1px solid rgba(139, 92, 246, 0.25)' }}
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               >
-                {/* Certificate image — full width, no padding, no gaps */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={achievement.image}
@@ -118,9 +117,8 @@ export default function Achievements() {
                   }}
                   draggable={false}
                 />
-                {/* Text content */}
-                <div style={{ padding: '14px 16px 18px' }}>
-                  <h3 className="text-sm font-bold mb-1.5 text-white text-center">
+                <div style={{ padding: '16px 20px 20px' }}>
+                  <h3 className="text-base font-bold mb-2 text-white text-center">
                     {achievement.title}
                   </h3>
                   <p className="text-gray-400 text-xs leading-relaxed text-center">
