@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Shabareshkumar S",
     title: "",
     subtitle: "",
-    description: "A passionate technology enthusiast with expertise in Full-Stack Development, UI/UX Design, and Programming, along with experience in AI and IoT-based Solutions. Skilled in building scalable, user-centric applications with intuitive interfaces and efficient backends. Currently exploring Data Analytics and Visualization for data-driven decision-making. Proven ability to excel under pressure through hackathons, demonstrating strong problem-solving, teamwork, and leadership skills. Focused on leveraging technology to solve real-world problems in road safety and intelligent systems.",
+    description: `A passionate <strong>technology enthusiast</strong> with expertise in <strong>Full-Stack Development</strong>, <strong>UI/UX Design</strong>, and <strong>Programming</strong>, along with experience in <strong>AI and IoT-based Solutions</strong>. Skilled in building <strong>scalable, user-centric applications</strong> with <strong>intuitive interfaces</strong> and <strong>efficient backends</strong>. Currently exploring <strong>Data Analytics and Visualization</strong> for <strong>data-driven decision-making</strong>. Proven ability to excel under pressure through <strong>hackathons</strong>, demonstrating strong <strong>problem-solving, teamwork, and leadership skills</strong>. Focused on leveraging technology to solve <strong>real-world problems in road safety and intelligent systems</strong>.`,
     experienceYears: 0,
     email: "sshabareshkumar@gmail.com",
     phone: "+91 82480 19755",

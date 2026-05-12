@@ -32,9 +32,9 @@ export default function About() {
           <h2 className="text-5xl font-black text-white mb-3">
             About Me
           </h2>
-          <p className="text-slate-300 text-lg leading-7 text-justify" style={{ marginBottom: '24px' }}>
-            {personal.description}
-          </p>
+          <p className="about-description text-slate-300 text-lg leading-7 text-justify" style={{ marginBottom: '24px' }}
+            dangerouslySetInnerHTML={{ __html: personal.description }}
+          />
         </motion.div>
 
         {/* What I Do */}
