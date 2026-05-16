@@ -1,5 +1,4 @@
 # Portfolio — Personal Portfolio Website
-
 A production-ready personal portfolio built with Next.js, Tailwind CSS, and Framer Motion.
 
 ## ✨ Features
