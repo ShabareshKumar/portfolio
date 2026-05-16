@@ -78,7 +78,7 @@ export default function Hero() {
                   <ExternalLink size={18} /> LinkedIn
                 </a>
                 <a
-                  href="/Shabareshkumar_S_Resume.pdf"
+                  href="/Shabareshkumar_S___Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 py-5 rounded-xl glass text-slate-300 font-semibold hover:text-white hover:border-purple-500/50 transition-all duration-200 border border-white/10 w-[220px]"
